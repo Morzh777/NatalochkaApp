@@ -1,0 +1,69 @@
+services:
+  bot:
+    build:
+      context: ./Bot
+    image: tgbot-bot:latest
+    restart: always
+    env_file:
+      - ./Bot/.env
+    volumes:
+      - ./Bot/file_ids.json:/app/file_ids.json
+      - ./Bot/analytics:/app/analytics
+    depends_on:
+      - db-api
+      - description-api
+      - gateway-api
+      - numerology-api
+      - nginx
+    networks:
+      - tgnet
+
+  description-api:
+    build: ./microservices/api-description
+    image: description-api:latest
+    restart: always
+    networks:
+      - tgnet
+
+  db-api:
+    build:
+      context: ./microservices/db-api
+    image: db-api:latest
+    restart: always
+    env_file:
+      - ./microservices/db-api/.env
+    volumes:
+      - ./microservices/db-api/data:/app/data
+    networks:
+      - tgnet
+
+  gateway-api:
+    build: ./microservices/gateway-api
+    restart: always
+    networks:
+      - tgnet
+
+  numerology-api:
+    build: ./microservices/numerology-api
+    image: numerology-api:latest
+    restart: always
+    networks:
+      - tgnet
+
+  nginx:
+    build:
+      context: ./nginx-1.26.3
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    depends_on:
+      - db-api
+      - gateway-api
+      - numerology-api
+      - description-api
+    networks:
+      - tgnet
+
+networks:
+  tgnet:
+    driver: bridge

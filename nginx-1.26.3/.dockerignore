@@ -1,0 +1,10 @@
+Dockerfile
+start.bat
+stop.bat
+nginx.exe
+logs/
+temp/
+contrib/
+docs/
+.idea/
+*.log

@@ -1,0 +1,16 @@
+# === Исключаем мусор и окружение ===
+node_modules
+dist
+coverage
+.vscode
+.idea
+*.log
+.env
+.env.*
+
+# === Оставляем исходники и конфиги ===
+# НЕ исключаем tsconfig.json, *.ts, package-lock.json
+
+# === Исключаем тесты ===
+*.test.*
+test

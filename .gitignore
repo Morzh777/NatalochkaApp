@@ -1,0 +1,69 @@
+# Node.js и сборка
+node_modules/
+dist/
+output/
+
+# Env files
+.env
+*.env
+
+# Build artifacts
+*.tar
+*.tsbuildinfo
+
+# Logs
+*.log
+
+# VSCode/IDE
+.vscode/
+.idea/
+*.iml
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Базы данных и временные файлы
+*.db
+
+# Логи аналитики
+Bot/analytics/*.log
+
+# Кэшированные файлы Telegram
+Bot/file_ids.json
+
+# Исключить большие/временные изображения (если не нужны в git)
+microservices/numerology-api/output/
+microservices/numerology-api/src/images/
+
+# Exclude sensitive and large data
+microservices/api-description/src/data/
+
+# Служебные файлы Husky и Git
+.husky/
+.git/
+
+# Сгенерированные файлы NestJS
+microservices/gateway-api/dist/
+microservices/gateway-api/.nestjs/
+microservices/api-description/dist/
+microservices/numerology-api/dist/
+microservices/db-api/dist/
+
+# Сгенерированные файлы тестов
+microservices/api-description/test/*.json
+
+# Файлы lock
+package-lock.json
+Bot/package-lock.json
+decript/package-lock.json
+microservices/*/package-lock.json
+
+# Исключить папку с базой данных в microservices/db-api/data
+microservices/db-api/data/
+
+# Игнорировать всё в nix/, кроме nix-конфигов
+nix/**
+!nix/shell.nix
+!nix/flake.nix
+!nix/default.nix 
