@@ -3,7 +3,7 @@
   <img src="https://raw.githubusercontent.com/Morzh777/NatalochkaApp/main/Bot/images/template.png" alt="Natalochka Logo" width="120"/>
 </p>
 
-<h1 align="center">Наталочка — Telegram Bot & Микросервисная система</h1>
+<h1 align="center">Наталочка — Telegram Bot & Микросервисная архитектура</h1>
 <p align="center">
   <b>Многоуровневый проект для расчёта, визуализации и анализа матриц судьбы, совместимости, профилей и управления пользователями через Telegram-бота и микросервисы.</b>
 </p>
